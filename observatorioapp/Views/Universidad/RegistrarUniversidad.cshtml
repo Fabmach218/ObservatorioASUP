@@ -1,0 +1,54 @@
+@model Universidad
+@{
+    ViewData["Tittle"] = "Registrar Universidad";
+}
+
+<h1>@ViewData["Tittle"]</h1>
+
+<form asp-controller="Universidad" asp-action="RegistrarUniversidad" method="post">
+
+    <div class="form-group">
+        <label asp-for="nombre">NOMBRE DE LA UNIVERSIDAD: </label>
+        <input type="text" asp-for="nombre" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="telefono">TELÉFONO DE LA UNIVERSIDAD: </label>
+        <input type="text" asp-for="telefono" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="direccion">DIRECCIÓN DE LA UNIVERSIDAD: </label>
+        <input type="text" asp-for="direccion" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="aniversario">ANIVERSARIO DE LA UNIVERSIDAD: </label>
+        <input type="text" asp-for="aniversario" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="nombrerector">NOMBRE DEL RECTOR: </label>
+        <input type="text" asp-for="nombrerector" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="apellidorector">APELLIDO DEL RECTOR: </label>
+        <input type="text" asp-for="apellidorector" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="fechanacimientorector">FECHA DE NACIMIENTO DEL RECTOR: </label>
+        <input type="text" asp-for="fechanacimientorector" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="correorector">CORREO DEL RECTOR: </label>
+        <input type="text" asp-for="correorector" class="form-control">
+    </div>
+
+    <div>
+    <button class="btn btn-primary">REGISTRAR UNIVERSIDAD</button>
+    </div>
+
+</form>

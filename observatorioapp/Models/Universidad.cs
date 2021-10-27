@@ -9,31 +9,30 @@ namespace observatorioapp.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
-        [Column("id")]
-        public int Id {get; set; }
+        public int id {get; set; }
 
-        [Column("nombre")]
-        public string Nombre {get; set; }
+        [Required(ErrorMessage = "COLOQUE NOMBRE DE LA UNIVERSIDAD")]
+        public string nombre {get; set; }
 
-        [Column("telefono")]
-        public string Telefono {get; set; }
+        [Required(ErrorMessage = "COLOQUE TELÉFONO DE LA UNIVERSIDAD")]
+        public string telefono {get; set; }
 
-        [Column("direccion")]
-        public string Direccion {get; set; }
+        [Required(ErrorMessage = "COLOQUE DIRECCIÓN DE LA UNIVERSIDAD")]
+        public string direccion {get; set; }
 
-        [Column("aniversario")]
-        public DateTime Aniversario {get; set; }
+        [Required(ErrorMessage = "COLOQUE ANIVERSARIO DE LA UNIVERSIDAD")]
+        public DateTime aniversario {get; set; }
 
-        [Column("nomRec")]
-        public string NombreRector {get; set; }
+        [Required(ErrorMessage = "COLOQUE NOMBRE DEL RECTOR")]
+        public string nombrerector {get; set; }
 
-        [Column("apeRec")]
-        public string ApellidoRector {get; set; }
+        [Required(ErrorMessage = "COLOQUE APELLIDO DEL RECTOR")]
+        public string apellidorector {get; set; }
 
-        [Column("fecNacRec")]
-        public DateTime FechaNacimientoRector {get; set; }
+        [Required(ErrorMessage = "COLOQUE FECHA DE NACIMIENTO DEL RECTOR")]
+        public DateTime fechanacimientorector {get; set; }
 
-        [Column("corRec")]
-        public string CorreoRector {get; set; }
+        [Required(ErrorMessage = "COLOQUE CORREO ELECTRÓNICO DEL RECTOR")]
+        public string correorector {get; set; }
     } 
 }
