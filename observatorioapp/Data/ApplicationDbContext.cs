@@ -14,6 +14,7 @@ namespace observatorioapp.Data
         }
 
         public DbSet<observatorioapp.Models.Noticia> DataNoticias {get; set; }
+        public DbSet<observatorioapp.Models.Universidad> DataUniversidades {get; set; }
 
     }
 }
