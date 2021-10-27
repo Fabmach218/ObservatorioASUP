@@ -16,6 +16,9 @@ namespace observatorioapp.Data
          public DbSet<observatorioapp.Models.Usuario> DataUsuarios {get; set; }
         public DbSet<observatorioapp.Models.Noticia> DataNoticias {get; set; }
         public DbSet<observatorioapp.Models.Universidad> DataUniversidades {get; set; }
+        public DbSet<observatorioapp.Models.Contacto> DataContactos {get; set; }
+        public DbSet<observatorioapp.Models.Normativa> DataNormativas {get; set; }
+        public DbSet<observatorioapp.Models.Entidad> DataEntidades {get; set; }
 
     }
 }

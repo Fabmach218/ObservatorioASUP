@@ -26,6 +26,9 @@ namespace observatorioapp.Models
 
         [Required(ErrorMessage = "COLOQUE LA FECHA")]
         public DateTime fecha {get; set; }
+        [Required(ErrorMessage = "COLOQUE LA ENTIDAD EMISORA")]
+        public Entidad entidad {get; set; }
+        public int entidadId {get; set; }
         
     }
 

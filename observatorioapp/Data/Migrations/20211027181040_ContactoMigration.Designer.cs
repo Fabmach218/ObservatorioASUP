@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using observatorioapp.Data;
@@ -9,9 +10,10 @@ using observatorioapp.Data;
 namespace observatorioapp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211027181040_ContactoMigration")]
+    partial class ContactoMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -254,66 +256,6 @@ namespace observatorioapp.Data.Migrations
                     b.ToTable("t_contacto");
                 });
 
-            modelBuilder.Entity("observatorioapp.Models.Entidad", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<string>("Correo")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("Telefono")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("t_entidad");
-                });
-
-            modelBuilder.Entity("observatorioapp.Models.Normativa", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<string>("descripcion")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("entidadId")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("fecha")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<string>("nombrefile")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("numero")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("titulo")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("entidadId");
-
-                    b.ToTable("t_normativa");
-                });
-
             modelBuilder.Entity("observatorioapp.Models.Noticia", b =>
                 {
                     b.Property<int>("Id")
@@ -443,22 +385,6 @@ namespace observatorioapp.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("observatorioapp.Models.Normativa", b =>
-                {
-                    b.HasOne("observatorioapp.Models.Entidad", "entidad")
-                        .WithMany("listaNormativas")
-                        .HasForeignKey("entidadId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("entidad");
-                });
-
-            modelBuilder.Entity("observatorioapp.Models.Entidad", b =>
-                {
-                    b.Navigation("listaNormativas");
                 });
 #pragma warning restore 612, 618
         }
