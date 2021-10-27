@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Búsqueda de Información</title>
+    <link rel="icon" type="image/x-icon" href="~/assets/favicon.ico" />
+	<link rel="stylesheet" href="~/css/filtro.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+
+	
+</head>
+<body>
+	
+
+       @RenderBody()
+       
+
+
+ <script src="js/jquery-3.2.1.js"></script>
+	<script src="js/script.js"></script>
+
+     @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>
