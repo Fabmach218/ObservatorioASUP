@@ -1,0 +1,44 @@
+@model Normativa
+@{
+    ViewData["Tittle"] = "Registrar Normativa";
+}
+
+<h1>@ViewData["Tittle"]</h1>
+
+<form asp-controller="Normativa" asp-action="RegistrarNormativa" method="post">
+
+    <div class="form-group">
+        <label asp-for="numero">NÚMERO DE LA NORMATIVA: </label>
+        <input type="number" asp-for="numero" class="form-control">
+        <span class="text-danger" asp-validation-for="numero"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="titulo">TÍTULO DE LA NORMATIVA: </label>
+        <textarea type="text" asp-for="titulo" class="form-control"></textarea>
+        <span class="text-danger" asp-validation-for="titulo"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="descripcion">DESCRIPCIÓN DE LA UNIVERSIDAD: </label>
+        <input type="text" asp-for="descripcion" class="form-control">
+        <span class="text-danger" asp-validation-for="descripcion"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="nombrefile">NOMBRE DEL ARCHIVO: </label>
+        <input type="text" asp-for="nombrefile" class="form-control">
+        <span class="text-danger" asp-validation-for="nombrefile"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="fecha">FECHA: </label>
+        <input type="text" asp-for="fecha" class="form-control">
+        <span class="text-danger" asp-validation-for="fecha"></span>
+    </div>
+
+    <div>
+    <button class="btn btn-primary">REGISTRAR NORMATIVA</button>
+    </div>
+
+</form>
