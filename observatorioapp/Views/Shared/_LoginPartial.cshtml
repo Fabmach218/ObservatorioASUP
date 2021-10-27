@@ -9,8 +9,9 @@
 
     Usuario myidentity = await Task.Run(() => UserManager.GetUserAsync(User));
     var roles = await Task.Run(() => UserManager.GetRolesAsync(myidentity));
-    //bool isadmin =await Task.Run(() => UserManager.IsInRoleAsync(myidentity,"Admin"));
-    @if(roles.Contains("Admin") || roles.Contains("Operador")){
+    
+
+    @if(roles.Contains("Admin")){
 
         <p>Hola mundo</p>
 
@@ -21,7 +22,7 @@
     </li>
     <li class="nav-item">
         <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="nav-link btn btn-link text-dark">Cerrar Sesion</button>
+            <button  type="submit" class="nav-link btn btn-link text-white">CERRAR SESION</button>
         </form>
     </li>
 }
