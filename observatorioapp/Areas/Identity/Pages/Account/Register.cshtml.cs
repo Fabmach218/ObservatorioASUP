@@ -13,20 +13,21 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using observatorioapp.Models;
 
 namespace observatorioapp.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<Usuario> _signInManager;
+        private readonly UserManager<Usuario> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
         public RegisterModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager,
+            UserManager<Usuario> userManager,
+            SignInManager<Usuario> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
@@ -45,6 +46,18 @@ namespace observatorioapp.Areas.Identity.Pages.Account
 
         public class InputModel
         {
+
+           [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "Full name")]
+        public string Nombre { get; set; }
+
+
+         [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "Full name")]
+        public string Apellido { get; set; }
+
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
@@ -74,7 +87,7 @@ namespace observatorioapp.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
+                var user = new Usuario {Nombre = Input.Nombre , Apellido = Input.Apellido , UserName = Input.Email, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
