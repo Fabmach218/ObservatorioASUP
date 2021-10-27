@@ -12,7 +12,8 @@ namespace observatorioapp.Data
             : base(options)
         {
         }
-
+       
+         public DbSet<observatorioapp.Models.Usuario> DataUsuarios {get; set; }
         public DbSet<observatorioapp.Models.Noticia> DataNoticias {get; set; }
         public DbSet<observatorioapp.Models.Universidad> DataUniversidades {get; set; }
 
