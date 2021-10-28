@@ -31,15 +31,6 @@ namespace observatorioapp.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult RegistrarContacto(Contacto c){
-            
-            c.Fecha = DateTime.Now;
-            _context.Add(c);
-            _context.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -15,7 +15,7 @@ namespace observatorioapp.Models
         [Required(ErrorMessage = "INGRESE SU EMAIL")]
         public string Correo {get; set; }
         [Required(ErrorMessage = "INGRESE SU CELULAR")]
-        public int Celular {get; set; }
+        public string Celular {get; set; }
         [Required(ErrorMessage = "INGRESE SU MENSAJE")]
         public string Mensaje {get; set; }
         [Required]
