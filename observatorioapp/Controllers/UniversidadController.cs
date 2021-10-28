@@ -40,9 +40,21 @@ namespace observatorioapp.Controllers
             if(ModelState.IsValid){
             _context.Add(universidad);
             _context.SaveChanges();
-            return RedirectToAction("RegistrarUniversidad");
+            return RedirectToAction("ListarUniversidad");
             }   
             return View();          
+        }
+
+        public IActionResult ListarUniversidad(){
+            var universidad = _context.DataUniversidades.ToList();
+            return View(universidad);
+        }
+
+        public IActionResult Delete(int? id){
+            var universidad = _context.DataUniversidades.Find(id);
+            _context.DataUniversidades.Remove(universidad);
+            _context.SaveChanges();
+            return RedirectToAction("ListarUniversidad");
         }
 
     }

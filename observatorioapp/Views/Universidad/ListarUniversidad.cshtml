@@ -1,0 +1,62 @@
+@model List<Universidad>
+@{
+    Layout = "_Administrador";
+    ViewData["Tittle"] = "LISTA DE UNIVERSIDADES";
+
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="text-center">
+ 
+    @if (Model.Count == 0) {
+        <p>NO HAY UNIVERSIDADES REGISTRADAS</p>
+    }
+    
+  <div class="container">
+    <h1>@ViewData["Message"]</h1>
+    <div class="row">
+      <div class="col">
+        <div id="univ" class="mb-3">
+          <div class="row">
+            @foreach (var item in Model) {
+            <div class="col-sm-4">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="card-img-actions">
+                    <img class="img-responsive" width="96" height="150"
+                       src="@item.imagen" alt="Icono"  />
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">@Html.DisplayFor(modelItem => item.nombre)</h5>
+                  <p class="card-text">@Html.DisplayFor(modelItem => item.telefono)</p>
+                  <p class="card-text">@Html.DisplayFor(modelItem => item.direccion)</p>
+                  <p class="card-text">@Html.DisplayFor(modelItem => item.aniversario)</p>
+                  <p class="card-text">@Html.DisplayFor(modelItem => item.nombrerector)</p>
+                  <p class="card-text">@Html.DisplayFor(modelItem => item.apellidorector)</p>
+                  <p class="card-text">@Html.DisplayFor(modelItem => item.fechanacimientorector)</p>
+                  <center><a class="btn btn-primary">EDITAR</a></center>
+                  <br>
+                  <center><a class="btn btn-danger" asp-action="Delete" id="delete" asp-route-id="@item.id">ELIMINAR</a></center>
+                  
+                </div>
+              </div>
+            </div>
+            }
+         </div>
+        </div>
+      </div>
+    </div>
+  </div> 
