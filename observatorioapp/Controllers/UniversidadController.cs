@@ -22,10 +22,14 @@ namespace observatorioapp.Controllers
             _context = context;
         }
 
-        public IActionResult RegistrarUniversidad(){
+        public IActionResult EleccionUniversidad(){
             return View();
         }
 
+        public IActionResult RegistrarUniversidad(){
+            return View();
+        }
+        
         [HttpPost]
         public IActionResult RegistrarUniversidad(Universidad universidad, int datos){
             if(ModelState.IsValid){
