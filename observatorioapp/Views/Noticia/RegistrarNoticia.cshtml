@@ -1,0 +1,32 @@
+@model Noticia
+@{
+    ViewData["Tittle"] = "REGISTRAR NOTICIA";
+}
+
+<h1>@ViewData["Tittle"]</h1>
+
+<form asp-controller="Noticia" asp-action="RegistrarNoticia" method="post">
+
+    <div class="form-group">
+        <label asp-for="Titulo">TÍTULO DE LA NOTICIA: </label>
+        <input type="text" asp-for="Titulo" class="form-control">
+        <span class="text-danger" asp-validation-for="Titulo"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LinkImagen">COLOQUE EL URL DE LA IMAGEN: </label>
+        <input type="text" asp-for="LinkImagen" class="form-control">
+        <span class="text-danger" asp-validation-for="LinkImagen"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LinkNoticia">COLOQUE EL URL DE LA NOTICIA: </label>
+        <input type="text" asp-for="LinkNoticia" class="form-control">
+        <span class="text-danger" asp-validation-for="LinkNoticia"></span>
+    </div>
+
+    <div>
+    <button class="btn btn-primary">REGISTRAR NOTICIA</button>
+    </div>
+
+</form>

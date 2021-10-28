@@ -18,7 +18,7 @@ namespace observatorioapp.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index(){
+        public IActionResult RegistrarNoticia(){
             return View();
         }
 
