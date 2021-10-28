@@ -47,31 +47,31 @@ namespace observatorioapp.Areas.Identity.Pages.Account
         public class InputModel
         {
 
-           [Required]
+           [Required(ErrorMessage = "El campo nombre es requerido")]
         [DataType(DataType.Text)]
-        [Display(Name = "Full name")]
+        [Display(Name = "Nombre Completo")]
         public string Nombre { get; set; }
 
 
-         [Required]
+         [Required(ErrorMessage = "El campo apellido es requerido")]
         [DataType(DataType.Text)]
-        [Display(Name = "Full name")]
+        [Display(Name = "Apellido Completo")]
         public string Apellido { get; set; }
 
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage = "El correo no puede estar vacio")]
+            [EmailAddress(ErrorMessage = "Tiene que ingresar un correo valido")]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Required(ErrorMessage = "La contraseña es requerida")]
+            [StringLength(100, ErrorMessage = "La contraseña debe tener una letra en mayuscula , otra en minuscula , caracter especial , numeros y minimo debe ser de 6 caracteres", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "Confirmar Contraseña")]
+            [Compare("Password", ErrorMessage = "Las contraseñas no coinciden")]
             public string ConfirmPassword { get; set; }
         }
 
