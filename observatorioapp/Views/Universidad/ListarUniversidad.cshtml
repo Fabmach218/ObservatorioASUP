@@ -41,12 +41,18 @@
                 </div>
                 <div class="card-body">
                   <h5 class="card-title">@Html.DisplayFor(modelItem => item.nombre)</h5>
+                  <strong><p>Teléfono:</p></strong>
                   <p class="card-text">@Html.DisplayFor(modelItem => item.telefono)</p>
+                  <strong><p>Dirección:</p></strong>
                   <p class="card-text">@Html.DisplayFor(modelItem => item.direccion)</p>
+                  <strong><p>Aniversario:</p></strong>
                   <p class="card-text">@Html.DisplayFor(modelItem => item.aniversario)</p>
+                  <strong><p>Rector:</p></strong>
                   <p class="card-text">@Html.DisplayFor(modelItem => item.nombrerector)</p>
                   <p class="card-text">@Html.DisplayFor(modelItem => item.apellidorector)</p>
+                  <strong><p>Onomástico del Rector:</p></strong>
                   <p class="card-text">@Html.DisplayFor(modelItem => item.fechanacimientorector)</p>
+                  <strong><p>Correo del Rector:</p></strong>
                   <p class="card-text">@Html.DisplayFor(modelItem => item.correorector)</p>
                   <center><a class="btn btn-primary" asp-controller="Universidad" asp-action="Edit" asp-route-id="@item.id">EDITAR</a></center>
                   <br>
