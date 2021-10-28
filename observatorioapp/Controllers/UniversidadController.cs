@@ -23,8 +23,10 @@ namespace observatorioapp.Controllers
         }
 
         public IActionResult Index()
-        {
-            return View();
+        {   
+            var universidades = _context.DataUniversidades.ToList();
+
+            return View(universidades);
         }
 
         public IActionResult EleccionUniversidad(){
