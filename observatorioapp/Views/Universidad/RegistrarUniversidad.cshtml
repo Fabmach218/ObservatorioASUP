@@ -1,10 +1,19 @@
 @model Universidad
 @{
+    Layout = "_Administrador";
     ViewData["Tittle"] = "REGISTRAR UNIVERSIDAD";
 }
 
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<br>
+<br>
+<br>
+
 <h1>@ViewData["Tittle"]</h1>
 
+<main>
+ 
 <form asp-controller="Universidad" asp-action="RegistrarUniversidad" method="post">
 
     <div class="form-group">
@@ -55,8 +64,10 @@
         <span class="text-danger" asp-validation-for="correorector"></span>
     </div>
 
-    <div>
+    <center><div>
     <button class="btn btn-primary">REGISTRAR UNIVERSIDAD</button>
-    </div>
+    </div></center>
 
 </form>
+
+</main>
