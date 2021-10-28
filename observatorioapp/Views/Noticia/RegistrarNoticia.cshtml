@@ -1,9 +1,20 @@
 @model Noticia
 @{
+    Layout = "_Administrador";
     ViewData["Tittle"] = "REGISTRAR NOTICIA";
 }
 
-<h1>@ViewData["Tittle"]</h1>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <form asp-controller="Noticia" asp-action="RegistrarNoticia" method="post">
 
@@ -24,9 +35,9 @@
         <input type="text" asp-for="LinkNoticia" class="form-control">
         <span class="text-danger" asp-validation-for="LinkNoticia"></span>
     </div>
-
-    <div>
+    
+    <center><div>
     <button class="btn btn-primary">REGISTRAR NOTICIA</button>
-    </div>
+    </div></center>
 
 </form>
