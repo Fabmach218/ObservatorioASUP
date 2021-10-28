@@ -23,8 +23,11 @@ namespace observatorioapp.Controllers
         }
 
         public IActionResult Index()
-        {
-            return View();
+        {    
+
+            var noticias = _context.DataNoticias.ToList();
+            return View(noticias);
+
         }
         public IActionResult RegistrarNoticia(){
             return View();
