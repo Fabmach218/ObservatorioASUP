@@ -6,20 +6,34 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using observatorioapp.Models;
+using observatorioapp.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace observatorioapp.Controllers
 {
     public class NoticiaController : Controller
     {
         
-        private readonly ILogger<NoticiaController> _logger;
-        public NoticiaController(ILogger<NoticiaController> logger)
+        private readonly ApplicationDbContext _context;
+
+        public NoticiaController(ApplicationDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult RegistrarNoticia(){
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult RegistrarNoticia(Noticia noticia, int datos){
+            if(ModelState.IsValid){
+            _context.Add(noticia);
+            _context.SaveChanges();
+            return RedirectToAction("RegistrarNoticia");
+            }   
+            return View();          
         }
 
     }
