@@ -22,6 +22,10 @@ namespace observatorioapp.Controllers
             _context = context;
         }
 
+        public IActionResult ListarNoticia()
+        {
+            return View();
+        }
         public IActionResult RegistrarNoticia(){
             return View();
         }

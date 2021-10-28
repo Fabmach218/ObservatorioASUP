@@ -22,6 +22,11 @@ namespace observatorioapp.Controllers
             _context = context;
         }
 
+        public IActionResult ListarUniversidad()
+        {
+            return View();
+        }
+
         public IActionResult EleccionUniversidad(){
             return View();
         }
