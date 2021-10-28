@@ -47,7 +47,8 @@
                   <p class="card-text">@Html.DisplayFor(modelItem => item.nombrerector)</p>
                   <p class="card-text">@Html.DisplayFor(modelItem => item.apellidorector)</p>
                   <p class="card-text">@Html.DisplayFor(modelItem => item.fechanacimientorector)</p>
-                  <center><a class="btn btn-primary">EDITAR</a></center>
+                  <p class="card-text">@Html.DisplayFor(modelItem => item.correorector)</p>
+                  <center><a class="btn btn-primary" asp-controller="Universidad" asp-action="Edit" asp-route-id="@item.id">EDITAR</a></center>
                   <br>
                   <center><a class="btn btn-danger" asp-action="Delete" id="delete" asp-route-id="@item.id">ELIMINAR</a></center>
                   

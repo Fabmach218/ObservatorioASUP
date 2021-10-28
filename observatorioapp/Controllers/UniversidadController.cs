@@ -59,5 +59,20 @@ namespace observatorioapp.Controllers
             return RedirectToAction("ListarUniversidad");
         }
 
+        public IActionResult Edit(int id){
+            Universidad objUniversidad = _context.DataUniversidades.Find(id);
+            if(objUniversidad  == null){
+                return NotFound();
+            }
+            return View(objUniversidad );
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int id, [Bind("id, nombre, telefono, direccion, aniversario, nombrerector, apellidorector, fechanacimientorector, correorector, imagen")] Universidad  objUniversidad ){
+            _context.Update(objUniversidad );
+            _context.SaveChanges();
+            ViewData["Message"] = "UNIVERSIDAD ACTUALIZADA";
+            return RedirectToAction("ListarUniversidad");
+        }
     }
 }

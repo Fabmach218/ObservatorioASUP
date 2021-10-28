@@ -1,0 +1,79 @@
+@model Universidad
+@{
+    Layout = "_Administrador";
+    ViewData["Tittle"] = "EDITAR UNIVERSIDAD";
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<form asp-controller="Universidad" asp-action="Edit" method="post">
+
+    <div class="form-group">
+        <label asp-for="nombre">NOMBRE DE LA UNIVERSIDAD: </label>
+        <input type="text" asp-for="nombre" class="form-control">
+        <span class="text-danger" asp-validation-for="nombre"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="telefono">TELÉFONO DE LA UNIVERSIDAD: </label>
+        <input type="text" asp-for="telefono" class="form-control">
+        <span class="text-danger" asp-validation-for="telefono"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="direccion">DIRECCIÓN DE LA UNIVERSIDAD: </label>
+        <input type="text" asp-for="direccion" class="form-control">
+        <span class="text-danger" asp-validation-for="direccion"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="aniversario">ANIVERSARIO DE LA UNIVERSIDAD: </label>
+        <input type="date" asp-for="aniversario" class="form-control">
+        <span class="text-danger" asp-validation-for="aniversario"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="nombrerector">NOMBRE DEL RECTOR: </label>
+        <input type="text" asp-for="nombrerector" class="form-control">
+        <span class="text-danger" asp-validation-for="nombrerector"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="apellidorector">APELLIDO DEL RECTOR: </label>
+        <input type="text" asp-for="apellidorector" class="form-control">
+        <span class="text-danger" asp-validation-for="apellidorector"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="fechanacimientorector">FECHA DE NACIMIENTO DEL RECTOR: </label>
+        <input type="date" asp-for="fechanacimientorector" class="form-control">
+        <span class="text-danger" asp-validation-for="fechanacimientorector"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="correorector">CORREO DEL RECTOR: </label>
+        <input type="text" asp-for="correorector" class="form-control">
+        <span class="text-danger" asp-validation-for="correorector"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="imagen">COLOQUE UNA IMAGEN DEL LOGO: </label>
+        <input type="text" asp-for="imagen" class="form-control">
+        <span class="text-danger" asp-validation-for="imagen"></span>
+    </div>
+
+    <center><div>
+    <button class="btn btn-primary">GUARDAR CAMBIOS</button>
+    </div></center>
+
+</form>
