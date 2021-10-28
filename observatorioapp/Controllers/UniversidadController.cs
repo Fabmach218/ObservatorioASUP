@@ -6,21 +6,34 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using observatorioapp.Models;
+using observatorioapp.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace observatorioapp.Controllers
 {
     public class UniversidadController : Controller
     {
         
-        private readonly ILogger<UniversidadController> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public UniversidadController(ILogger<UniversidadController> logger)
+        public UniversidadController(ApplicationDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult RegistrarUniversidad(){
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult RegistrarUniversidad(Universidad universidad, int datos){
+            if(ModelState.IsValid){
+            _context.Add(universidad);
+            _context.SaveChanges();
+            return RedirectToAction("RegistrarUniversidad");
+            }   
+            return View();          
         }
 
     }

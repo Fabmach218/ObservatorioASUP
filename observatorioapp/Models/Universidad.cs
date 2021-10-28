@@ -34,5 +34,9 @@ namespace observatorioapp.Models
 
         [Required(ErrorMessage = "COLOQUE CORREO ELECTRÓNICO DEL RECTOR")]
         public string correorector {get; set; }
+
+        [Required(ErrorMessage = "COLOQUE UNA IMAGEN DEL LOGO DE LA UNIVERSIDAD")]
+        public string imagen {get; set; }
+
     } 
 }
