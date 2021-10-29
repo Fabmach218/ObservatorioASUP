@@ -1,6 +1,7 @@
 @using observatorioapp.Models
 @inject SignInManager<Usuario> SignInManager
 @{
+    
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }
 <ul class="nav nav-pills flex-column">
