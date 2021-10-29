@@ -24,7 +24,7 @@ let porcentaje = 0;
 
 function redirect(){
 
-    window.location.href = "https://localhost:5001/Identity/Account/Login";
+    window.location.href = "https://app-observatorio-asup.herokuapp.com/Identity/Account/Login";
 
   }
 
