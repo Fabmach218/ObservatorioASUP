@@ -3,7 +3,7 @@
 @{
 
     Layout = "_Filtros";
-    ViewData["Title"] = "Profile";
+    ViewData["Title"] = "Perfil";
     ViewData["ActivePage"] = ManageNavPages.Index;
 }
 
@@ -14,26 +14,26 @@
         <form id="profile-form" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Username"></label>
+                <label asp-for="Username">Usuario</label>
                 <input asp-for="Username" class="form-control" disabled />
             </div>
 
             <div class="form-group">
-                <label asp-for="Input.Nombre"></label>
+                <label asp-for="Input.Nombre">Nombre</label>
                 <input asp-for="Input.Nombre" class="form-control" />
             </div>
 
              <div class="form-group">
-                <label asp-for="Input.Apellido"></label>
+                <label asp-for="Input.Apellido">Apellido</label>
                 <input asp-for="Input.Apellido" class="form-control" />
             </div>
 
             <div class="form-group">
-                <label asp-for="Input.PhoneNumber"></label>
+                <label asp-for="Input.PhoneNumber">Numero</label>
                 <input asp-for="Input.PhoneNumber" class="form-control" />
                 <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
             </div>
-            <button id="update-profile-button" type="submit" class="btn btn-primary">Save</button>
+            <button id="update-profile-button" type="submit" class="btn btn-primary">Guardar</button>
         </form>
     </div>
 </div>
