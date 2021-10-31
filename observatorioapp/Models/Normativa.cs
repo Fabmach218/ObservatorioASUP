@@ -21,14 +21,14 @@ namespace observatorioapp.Models
         [Required(ErrorMessage = "COLOQUE LA DESCRIPCIÓN DE LA NORMATIVA")]
         public string descripcion {get; set; }
 
-        [Required(ErrorMessage = "COLOQUE EL NOMBRE DEL ARCHIVO")]
+       
         public string nombrefile {get; set; }
 
         [Required(ErrorMessage = "COLOQUE LA FECHA")]
         public DateTime fecha {get; set; }
-        [Required(ErrorMessage = "COLOQUE LA ENTIDAD EMISORA")]
+    
         public Entidad entidad {get; set; }
-        public int entidadId {get; set; }
+
         
     }
 

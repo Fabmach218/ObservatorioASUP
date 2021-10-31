@@ -1,11 +1,14 @@
-@model Normativa
+@model observatorioapp.Models.Normativa
 @{
+    Layout = "_Filtros";
+    List<Entidad> entidades = new List<Entidad>();
+    entidades = ViewBag.items;
     ViewData["Tittle"] = "REGISTRAR NORMATIVA";
 }
 
 <h1>@ViewData["Tittle"]</h1>
 
-<form asp-controller="Normativa" asp-action="RegistrarNormativa" method="post">
+<form asp-controller="Normativa" asp-action="RegistrarNormativa" method="post"  enctype="multipart/form-data">
 
     <div class="form-group">
         <label asp-for="numero">NÚMERO DE LA NORMATIVA: </label>
@@ -20,21 +23,39 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="descripcion">DESCRIPCIÓN DE LA UNIVERSIDAD: </label>
-        <input type="text" asp-for="descripcion" class="form-control">
+        <label asp-for="descripcion">DESCRIPCIÓN DE LA Normativa: </label>
+         <textarea asp-for="descripcion"  class="form-control" cols="30" rows="10"></textarea>
         <span class="text-danger" asp-validation-for="descripcion"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="nombrefile">NOMBRE DEL ARCHIVO: </label>
-        <input type="text" asp-for="nombrefile" class="form-control">
-        <span class="text-danger" asp-validation-for="nombrefile"></span>
+        <label for="nomb">Normativa: </label>
+        <input type="file" for="nombr" name="files" class="form-control">
     </div>
 
     <div class="form-group">
-        <label asp-for="fecha">FECHA: </label>
+        <label asp-for="fecha" >FECHA: </label>
         <input type="text" asp-for="fecha" class="form-control">
         <span class="text-danger" asp-validation-for="fecha"></span>
+    </div>
+
+    <div class="form-group">
+
+     <label class="form-label">Entidad Emisora</label>
+    
+      <select name="idEntidad" id="norma" class="form-control">
+
+         <option value="" selected disabled >Selecciones la entidad...</option>
+         
+         @foreach (var item in entidades)
+         {
+             <option value="@item.Id" >@item.Nombre</option>
+
+         }
+
+
+      </select>
+   
     </div>
 
     <div>
