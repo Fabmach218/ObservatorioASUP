@@ -25,6 +25,11 @@ namespace observatorioapp.Controllers
             _context = context;
         }
 
+        public IActionResult AccionNormativa(){
+
+            return View();
+        }
+
         public IActionResult RegistrarNormativa(){
 
             var entidades = _context.DataEntidades.ToList();
