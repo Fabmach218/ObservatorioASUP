@@ -1,18 +1,29 @@
 @model List<Normativa>
-@{
+@{   
+    Layout = "_Filtros";
     ViewData["Tittle"] = "LISTA DE NORMATIVAS";
 }
 
-<div class="text-center">
-    <h1>NORMATIVAS</h1>
-    <table>
-        <tr>
-            <td>ID</td>
-            <td>NÚMERO</td>
-            <td>TÍTULO</td>
-            <td>DESCRIPCIÓN</td>
-            <td>ARCHIVO</td>
-            <td>FECHA</td>
-        </tr>
-    </table>
-</div>
+<table class="table table-bordered">  
+    <tr>  
+        <th class="col-md-4">  
+           Nombre  
+        </th>  
+          
+        <th class="col-md-2"></th>  
+    </tr>  
+  
+@foreach (var item in Model) {  
+    <tr>  
+        <td>  
+            @Html.DisplayFor(modelItem => item.nombrefile)  
+        </td>  
+          
+        <td>  
+            @Html.ActionLink("Descargar", "DownLoadNormativa" , new { id=item.id })   
+             
+        </td>  
+    </tr>  
+}  
+  
+</table> 

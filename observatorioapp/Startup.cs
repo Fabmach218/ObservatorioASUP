@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using observatorioapp.Models;
+using Microsoft.AspNetCore.Http.Features;
 
 namespace observatorioapp
 {
@@ -37,6 +38,13 @@ namespace observatorioapp
             services.AddDefaultIdentity<Usuario>(options => options.SignIn.RequireConfirmedAccount = true)
                  .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+              services.Configure<FormOptions>(options =>
+    {
+        // Set the limit to 256 MB
+        options.MultipartBodyLengthLimit = 268435456;
+    });
+
             services.AddControllersWithViews();
         }
 

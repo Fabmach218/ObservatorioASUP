@@ -44,15 +44,12 @@ namespace observatorioapp.Controllers
                        Console.WriteLine(Path.GetExtension(file.FileName).Substring(1));
 
                         if(Path.GetExtension(file.FileName).Substring(1) == "pdf"){
-
-                       var filePath  = "C:\\Users\\Julio\\OneDrive - Universidad de San Martin de Porres\\Documentos\\ASUP-Project\\ObservatorioASUP\\observatorioapp\\NormativasPdf\\" + file.FileName;
                       
-                         using (var stream = System.IO.File.Create(filePath))
-                        {
-                          file.CopyToAsync(stream);
-                        }
-
-                         normativa.nombrefile = Path.GetFileName(file.FileName);
+                          Stream str = file.OpenReadStream();
+                          BinaryReader br = new BinaryReader(str);
+                          Byte [] fileDet = br.ReadBytes((Int32) str.Length);
+                          normativa.archivo = fileDet;
+                          normativa.nombrefile = Path.GetFileName(file.FileName);
 
                         }else {
                             
@@ -61,6 +58,7 @@ namespace observatorioapp.Controllers
                 
                         }
 
+ 
                     }
 
 
@@ -70,8 +68,8 @@ namespace observatorioapp.Controllers
                 if(flag == true){
 
                      var entidades = _context.DataEntidades.ToList();
-            ViewBag.items = entidades;
-                    return View(normativa);
+                     ViewBag.items = entidades;
+                     return View(normativa);
                 }
 
                 var entity = _context.DataEntidades.Find(idEntidad);
@@ -88,11 +86,20 @@ namespace observatorioapp.Controllers
             return View(normativa);
 
         }
-
-
-       public IActionResult ListarNormativa(){
+      
         
-           return View();
+         public IActionResult ListarNormativa(){
+
+             var normativas = _context.DataNormativas.ToList();
+
+             return View(normativas);
+         }
+
+       public IActionResult DownLoadNormativa(int id){
+        
+           var normativas = _context.DataNormativas.Find(id);
+           return File(normativas.archivo, "application/pdf", normativas.nombrefile);  
+          
 
        }
 

@@ -26,6 +26,8 @@ namespace observatorioapp.Models
 
         [Required(ErrorMessage = "COLOQUE LA FECHA")]
         public DateTime fecha {get; set; }
+
+        public Byte [] archivo {get; set;}
     
         public Entidad entidad {get; set; }
 
