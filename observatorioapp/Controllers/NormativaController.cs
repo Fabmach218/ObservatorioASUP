@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,19 +25,22 @@ namespace observatorioapp.Controllers
             _logger = logger;
             _context = context;
         }
-
+        
+        [Authorize(Roles = "Admin")]
         public IActionResult AccionNormativa(){
 
             return View();
         }
-
+        
+        [Authorize(Roles = "Admin")]
         public IActionResult RegistrarNormativa(){
 
             var entidades = _context.DataEntidades.ToList();
             ViewBag.items = entidades;
             return View();
         }
-
+        
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult RegistrarNormativa(Normativa normativa , int idEntidad , List<IFormFile> files){
             var flag = false;
@@ -95,13 +99,15 @@ namespace observatorioapp.Controllers
         }
       
         
+         [Authorize(Roles = "Admin")]
          public IActionResult ListarNormativa(){
 
              var normativas = _context.DataNormativas.Include(e => e.entidad).ToList();
 
              return View(normativas);
          }
-
+         
+         [Authorize(Roles = "Admin")]
          public IActionResult EditarNormativa(int id){
 
                var normativa = _context.DataNormativas.Include(e => e.entidad).FirstOrDefault(s => s.id == id);
@@ -119,7 +125,8 @@ namespace observatorioapp.Controllers
                return View(normativa);
 
          }
-
+         
+         [Authorize(Roles = "Admin")]
          [HttpPost]
          public IActionResult EditarNormativa([Bind("id , numero , titulo , descripcion , fecha , nombrefile , archivo")] Normativa normativa ,  int idEntidad , List<IFormFile> files){
             var flag = false;
@@ -190,7 +197,8 @@ namespace observatorioapp.Controllers
              return View(normativa);
          }
 
-
+       
+       [Authorize(Roles = "Admin")]
        public IActionResult EliminarNormativa(int id){
             
              var normativa = _context.DataNormativas.Find(id);
