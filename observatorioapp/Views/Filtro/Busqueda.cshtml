@@ -1,3 +1,4 @@
+@model List<Normativa>
 
 @{
     ViewData["Title"] = "Busqueda Normativas";
@@ -6,31 +7,26 @@
 
 
 
-<div class="wrap">
-	<h1>Escoge para empezar la búsqueda</h1>
-	<div class="store-wrapper">
-		<div class="category_list">
-			<a href="#" class="category_item" category="all">Todo</a>
-			<a href="#" class="category_item" category="decretos">Decretos</a>
-			<a href="#" class="category_item" category="leyes">Leyes</a>
-			<a href="#" class="category_item" category="proyectos">Proyectos de Ley</a>
-			<a href="#" class="category_item" category="informes">Informes</a>
+ <div class="container mt-5">
+
+	 <h1 class="text-center">@ViewData["Title"]</h1>
+	
+	<div class="row">
+	@foreach (var item in Model)
+	{
+		 <div class="card col-12 mt-3">
+           <h5 class="card-header">@item.numero</h5>
+            <div class="card-body">
+              <h5 class="card-title">@item.titulo</h5>
+              <p class="card-text">@item.fecha</p>
+              @Html.ActionLink("Descargar", "DownLoadNormativa" , new { id=item.id })
+            </div>
+        </div>
+
+	}
+        
 		</div>
-		<section  class="products-list">
-			<form>
-				<select>
-				  <<option>Filtro</option>
-				  <option>#</option>
-				  <option>#</option>
-				  <option>#</option>
-				  <option>#</option>
-				</select>
-			  </form>
-			  <br>
-			<div class="product-item" category="proyectos">
-				<a href="#">PROYECTO DE LEY QUE MODIFICA EL DECRETO DE URGENCIA N° 034 - 2019</a>
-				<iframe class="lectura" src="https://leyes.congreso.gob.pe/Documentos/2016_2021/Proyectos_de_Ley_y_de_Resoluciones_Legislativas/PL08046-20210709.pdf" width="50%" height="200px"></iframe>
-			</div>
-		</section>
+
 	</div>
-</div>
+
+	
