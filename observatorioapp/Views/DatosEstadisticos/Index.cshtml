@@ -1,0 +1,123 @@
+@{
+    Layout = "_Filtros";
+}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Privadas',     47],
+          ['Publicas',      53],
+         
+        ]);
+
+        var options = {
+          title: 'Hay 53 universidades publicas y 47 universidades privadas'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Publicas',  4],
+          ['Privadas', 96],
+         
+        ]);
+
+        var options = {
+          title: 'Hay 44 universidades denegadas la licencia pv y 4 universidades universidades denegadas la licencia pb'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Provincia',     62],
+          ['Lima',      38],
+         
+        ]);
+
+        var options = {
+          title: 'Hay 37 universidades en Lima y 61 universidades en provincia'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart3'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Licenciadas',     100],
+          
+         
+        ]);
+
+        var options = {
+          title: 'Todas la universidades privadas son licenciadas'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart4'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+<section class="page-section bg-light" id="team">
+    <div class="container">
+        <div class="text-center">
+            <h1 class="section-heading text-uppercase">Datos y Estadisticas</h1>
+            <br>
+        </div>
+        <div class="row ">
+
+            <div class="col">
+                <div id="piechart" style="width: 500px; height: 300px; border: 3px solid; "></div>
+            </div>
+            <div class="col">
+               <div id="piechart4" style="width: 500px; height: 300px; border: 3px solid;"></div>
+            </div>
+           
+        </div>
+        <br>
+
+    
+        <div class="row">
+             <div class="col">
+                <div id="piechart3" style="width: 500px; height: 300px; border: 3px solid;"></div>
+            </div>
+            <div class="col">
+               <div id="piechart2" style="width: 500px; height: 300px; border: 3px solid;"></div>
+            </div>
+        </div>
+    
+    </div>
+</section>
