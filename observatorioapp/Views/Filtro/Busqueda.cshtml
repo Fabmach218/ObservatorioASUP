@@ -15,16 +15,15 @@
 	
 	<div class="row">
 	
-  <form asp-action="Filtrar" method="POST">
+  <form asp-action="Resultados" method="POST">
 
     <div class="form-group row">
-      <label asp-for="titulo" class="control-label"></label>
-      <input asp-for="titulo" class="form-control">
-      <span asp-validation-for="titulo" class="text-danger"></span>
+      <label class="control-label">Titulo</label>
+      <input type="text" name="titulo" class="form-control" required>
     </div>
 
     <div class="form-group row">
-      <label asp-for="entidad" class="control-label"></label>
+      <label class="control-label">Entidad</label>
       <select name="idEntidad" id="norma" class="form-control" required>
 
          <option value="" selected disabled >Seleccione la entidad...</option>
@@ -43,11 +42,12 @@
     <div class="form-group row">
       <label>Fecha</label>
       <label>De:</label>
-      <input type="date" name="fechainicio" class="form-control">
+      <input type="date" name="fechainicio" class="form-control" required>
       <label>Hasta:</label>
-      <input type="date" name="fechafin" class="form-control">
+      <input type="date" name="fechafin" class="form-control" required>
     </div>
 
+    <button class="btn btn-success">Buscar</button>
 
   </form>
         

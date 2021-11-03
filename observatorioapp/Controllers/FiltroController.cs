@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -22,10 +23,12 @@ namespace observatorioapp.Controllers
         return View();
     }
 
-      public IActionResult Resultados(){
-          
-           var normativas = _context.DataNormativas.Include( e => e.entidad).ToList();
-           return View(normativas);
+    [HttpPost]
+      public IActionResult Resultados(string titulo, int idEntidad, DateTime fechainicio, DateTime fechafin){
+
+        var normativas = _context.DataNormativas.Where(n => n.titulo.Contains(titulo) && n.entidad.Id == idEntidad && n.fecha >= fechainicio && n.fecha <= fechafin).Include( e => e.entidad).ToList();
+        //var normativas = _context.DataNormativas.Where(n => n.titulo.Contains(titulo) && n.entidad.Id == idEntidad && n.fecha >= fechainicio && n.fecha <= fechafin).Include( e => e.entidad).ToList();
+        return View(normativas);
 
       }
 
