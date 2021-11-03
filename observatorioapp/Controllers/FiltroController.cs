@@ -15,7 +15,14 @@ namespace observatorioapp.Controllers
           _context = context;
       } 
       
-      public IActionResult Busqueda(){
+    public IActionResult Busqueda(){
+        
+        var entidades = _context.DataEntidades.ToList();
+        ViewBag.items = entidades;
+        return View();
+    }
+
+      public IActionResult Resultados(){
           
            var normativas = _context.DataNormativas.Include( e => e.entidad).ToList();
            return View(normativas);
