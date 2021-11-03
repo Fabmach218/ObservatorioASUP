@@ -23,7 +23,6 @@ namespace observatorioapp.Controllers
         return View();
     }
 
-    [HttpPost]
       public IActionResult Resultados(string titulo, int idEntidad, DateTime fechainicio, DateTime fechafin){
 
         var normativas = _context.DataNormativas.Where(n => n.titulo.Contains(titulo) && n.entidad.Id == idEntidad && n.fecha >= fechainicio && n.fecha <= fechafin).Include( e => e.entidad).ToList();
