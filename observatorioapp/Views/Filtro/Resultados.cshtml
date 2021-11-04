@@ -1,3 +1,5 @@
+@using System
+
 @model List<Normativa>
 
 @{
@@ -18,7 +20,7 @@
            <h5 class="card-header">@item.numero</h5>
             <div class="card-body">
               <h5 class="card-title">@item.titulo</h5>
-              <p class="card-text">@item.fecha</p>
+              <p class="card-text">@item.fecha.ToString("dd/MM/yyyy")</p>
               <p class="card-text">@item.entidad.Nombre</p>
               @Html.ActionLink("Descargar", "DownLoadNormativa" , new { id=item.id })
             </div>
