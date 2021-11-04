@@ -23,11 +23,36 @@ namespace observatorioapp.Controllers
         return View();
     }
 
-      public IActionResult Resultados(string titulo, int idEntidad, DateTime fechainicio, DateTime fechafin){
+      public IActionResult Resultados(string titulo, int idEntidad, string fechainicio, string fechafin){
+        
+        var normativas = _context.DataNormativas.Include(n => n.entidad).ToList();
+        
+        var query1 = normativas;
+        var query2 = normativas;
+        var query3 = normativas;
 
-        var normativas = _context.DataNormativas.Where(n => n.titulo.Contains(titulo) && n.entidad.Id == idEntidad && n.fecha >= fechainicio && n.fecha <= fechafin).Include( e => e.entidad).ToList();
-        //var normativas = _context.DataNormativas.Where(n => n.titulo.Contains(titulo) && n.entidad.Id == idEntidad && n.fecha >= fechainicio && n.fecha <= fechafin).Include( e => e.entidad).ToList();
-        return View(normativas);
+        if(titulo != null){
+          query1 =  query1.Where(n => n.titulo.Contains(titulo)).ToList();
+        }
+        
+        if(idEntidad != 0){
+          query2 = query2.Where(n => n.entidad.Id == idEntidad).ToList();
+        }
+
+        if(fechainicio != null || fechafin != null){
+          
+          if(fechainicio == null){
+            query3 = query3.Where(n => n.fecha >= DateTime.ParseExact("0001-01-01", "yyyy-MM-dd", null) && n.fecha <= DateTime.ParseExact(fechafin, "yyyy-MM-dd", null)).ToList();
+          }else if(fechafin == null){
+            query3 = query3.Where(n => n.fecha >= DateTime.ParseExact(fechainicio, "yyyy-MM-dd", null) && n.fecha <= DateTime.Now).ToList();
+          }else{
+            query3 = query3.Where(n => n.fecha >= DateTime.ParseExact(fechainicio, "yyyy-MM-dd", null) && n.fecha <= DateTime.ParseExact(fechafin, "yyyy-MM-dd", null)).ToList();
+          }
+
+        }
+
+        var resultado = query1.Intersect(query2).Intersect(query3).ToList();
+        return View(resultado);
 
       }
 

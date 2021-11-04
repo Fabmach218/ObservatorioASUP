@@ -19,6 +19,7 @@
             <div class="card-body">
               <h5 class="card-title">@item.titulo</h5>
               <p class="card-text">@item.fecha</p>
+              <p class="card-text">@item.entidad.Nombre</p>
               @Html.ActionLink("Descargar", "DownLoadNormativa" , new { id=item.id })
             </div>
         </div>
