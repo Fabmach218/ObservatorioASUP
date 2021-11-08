@@ -55,3 +55,12 @@ function mensaje(){
     
 
 }
+
+function mostrarPassword(campo) {
+    var pass = document.getElementById(campo);
+    if (pass.type === "password") {
+      pass.type = "text";
+    } else {
+      pass.type = "password";
+    }
+  }
